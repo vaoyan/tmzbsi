@@ -1,0 +1,15 @@
+18868 bagihasil
+
+5132 cadangan
+
+200000 pokok
+
+
+$this->image('../images/bsi.PNG' ,$x='10',$y='10',$w=5,$h=1,$type='PNG',$link='../images/bsi.PNG');
+		$this->SetLineWidth(1);
+		$this->Ln(5);
+		$this->Cell(80);
+             
+$pdf->Image('../images/tmz.jpeg',30,700,100);
+
+Ojo ketungkul marang kalungguhan,akdonyan lan kemareman

@@ -1,0 +1,79 @@
+			<div class="col-md-3">
+			</div>
+			
+			<div class="col-md-7">
+			<?php
+			require 'lib/lib-function.php';
+			$fungsi = new Fungsi();?>
+			<h4>Identitas Calon Mahasiswa/Penyetor</h4>
+			<form name="form" method="POST" action="cetak-oo.php" target="_blank">
+			<table cellspacing="3" cellpadding="50" >
+			<tr><td width="200">No.SERI :</td><td><?php
+			echo "<b>".$fungsi->KwNums()."</b>";
+			?></td></tr>
+			<tr><td width="200">Nama :</td><td><input type="text" name="payee" placeholder="Nama Siswa" size="47"></td></tr>
+			<tr><td>NIM :</td><td><input type="text" name="nim" placeholder="NIM" size="47"></td></tr>
+			<tr><td>Alamat :</td><td><textarea cols="47" rows="4" placeholder="Alamat" name="alamat"></textarea></td></tr>
+			<tr><td>Jurusan :</td><td>
+			<select name="jurusan" width="50">
+				<option value="0">Pilih Jurusan</option>
+				<option value="D3-FA">D3-FA</option>
+				<option value="D3-RM">D3-RM</option>
+				<option value="D1-TD">D1-TD</option>
+				<option value="D3-TD">D3-TD</option>
+			</select></td></tr>
+			<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+  <type="text/javascript">
+    $(document).ready(function(){
+      $("#bujitul").keyup(function(){ 
+        var bujikes  = parseInt($("#bujikes").val());
+        var bujitul  = parseInt($("#bujitul").val());
+        var total = (bujikes + bujitul);
+        $("#totBayar").val(total); 
+      }); 
+    }); 
+    
+    function formatCurrency(num) {
+    num = num.toString().replace(/\$|\,/g,'');
+    if(isNaN(num))
+    num = "0";
+    sign = (num == (num = Math.abs(num)));
+    num = Math.floor(num*100+0.50000000001);
+    cents = num%100;
+    num = Math.floor(num/100).toString();
+    if(cents<10)
+    cents = "0" + cents;
+    for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+    num = num.substring(0,num.length-(4*i+3))+'.'+
+    num.substring(num.length-(4*i+3));
+    return (((sign)?'':'-') + 'Rp' + num + ',' + cents);
+    }
+  </script>
+			<tr><td>Biaya Uji Tulis/ PMDP :</td><td><input type="text" name="bujitul" id="bujitul" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>Biaya Uji Kesehatan :</td><td><input type="text" name="bujikes" id="bujikes" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>SPP Tetap Smt :</td><td><input type="text" name="spptetap" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>SPP Praktek Smt :</td><td><input type="text" name="spppraktek" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>SPP Teori Smt :</td><td><input type="text" name="sppteori" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>Biaya Pengembangan Umum :</td><td><input type="text" name="bpu" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>Biaya Oprasional Akademik :</td><td><input type="text" name="boa" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>Seragam :</td><td><input type="text" name="seragam" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>TPS :</td><td><input type="text" name="tps" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+			<tr><td>Biaya Lain Lain :</td><td><input type="text" name="blain" placeholder="Nominal Uang (Rp)" size="47"></td></tr>
+	
+			<tr><td>Jumlah Yang disetor :</td><td><input type="text" name="totBayar" id="totBayar" size="47" value="totBayar" disabled /></td></tr>
+			<tr><td>Admin :</td><td><input type="text" name="pic" placeholder="Nama Admin" size="47"></td></tr>
+			<tr><td align="center"><input type="submit" class="btn btn-success btn-md" value="Cetak &raquo;"></td><td align="center"><input type="reset" class="btn btn-success btn-md" value="&laquo; Reset"></td></tr>
+			</table>
+			</form>
+			</div>
+			<div class="col-md-2">
+				<ul>
+					<li><a href="index.html" class="kembali btn btn-sm btn-primary">&laquo; Kembali</a></li>
+				</ul>
+			</div>
+			
+    <div>
+    Harga: <input type="text" name="num" id="num" onkeyup="document.getElementById('format').innerHTML = formatCurrency(this.value);"/><span  id="format"></span>
+</div>
+
+			
